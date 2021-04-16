@@ -10,6 +10,7 @@
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
+WindowInfo g_Windowinfo;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -60,8 +61,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    g_Windowinfo.width = 800;
+    g_Windowinfo.height = 600;
+    g_Windowinfo.windowed = true;
+    g_Windowinfo.hWnd = hWnd;
+
     std::unique_ptr<Game> pGame = std::make_unique<Game>();
-    pGame->Init();
+    pGame->Init(g_Windowinfo);
 
     // 기본 메시지 루프입니다:
     while (true)

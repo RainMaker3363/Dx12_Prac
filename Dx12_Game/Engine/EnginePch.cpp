@@ -2,8 +2,6 @@
 #include "EnginePch.h"
 #include "pch.h"
 #include "EnginePch.h"
+#include "Engine.h"
 
-void HelloEngine()
-{
-
-}
+std::unique_ptr<Engine> g_Engine = make_unique<Engine>();
